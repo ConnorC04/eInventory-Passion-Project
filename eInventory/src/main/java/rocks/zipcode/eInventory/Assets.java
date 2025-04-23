@@ -13,14 +13,14 @@ public class Assets {
     private Sizes equipmentSize;
     @Enumerated(EnumType.STRING)
     private ageClassification equipmentAge;
-    @ManyToOne
-    @JoinColumn(name = "location_id")
-    private Locations location;
+
 
     public Assets() {}
 
-    public Assets(String name, String equipmentType, ageClassification ageClassification, Sizes size) {
-
+    public Assets(String equipmentType, ageClassification ageClassification, Sizes size) {
+        this.equipmentType = equipmentType;
+        this.equipmentAge = ageClassification;
+        this.equipmentSize = size;
     }
 
     public Long getId() {
@@ -49,5 +49,9 @@ public class Assets {
 
     public void setEquipmentAge(ageClassification equipmentAge) {
         this.equipmentAge = equipmentAge;
+    }
+
+    public void setId(Long id){
+        this.id = id;
     }
 }

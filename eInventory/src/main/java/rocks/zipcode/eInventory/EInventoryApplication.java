@@ -18,10 +18,9 @@ public class EInventoryApplication {
 	@Bean
 	CommandLineRunner runner(AssetsRepository repository) {
 		return args -> {
-			repository.save(new Assets());
-			repository.save(new Assets());
-			repository.save(new Assets());
+			repository.save(new Assets("helmet", ageClassification.JUNIOR, Sizes.SMALL));
+			repository.save(new Assets("elbowPad", ageClassification.SENIOR, Sizes.LARGE));
+			repository.save(new Assets("shinPad", ageClassification.YOUTH, Sizes.MEDIUM));
 		};
 	}
-
 }
