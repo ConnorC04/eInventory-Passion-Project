@@ -13,8 +13,15 @@ public class Assets {
     private Sizes equipmentSize;
     @Enumerated(EnumType.STRING)
     private ageClassification equipmentAge;
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Locations location;
 
     public Assets() {}
+
+    public Assets(String name, String equipmentType, ageClassification ageClassification, Sizes size) {
+
+    }
 
     public Long getId() {
         return id;
