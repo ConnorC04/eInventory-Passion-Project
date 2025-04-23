@@ -1,4 +1,4 @@
-package java.rocks.zipcode.eInventory;
+package rocks.zipcode.eInventory;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
