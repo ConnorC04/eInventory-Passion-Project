@@ -2,15 +2,18 @@ package rocks.zipcode.eInventory;
 
 
 import org.springframework.web.bind.annotation.*;
-import org.springframework.stereotype.Controller;
 
-@Controller
 
+@RestController
 public class AssetsController{
 
-    @PostMapping("/")
+    private Assets assets = new Assets("helmet", ageClassification.JUNIOR, Sizes.SMALL);
+
+    @GetMapping("/")
     public String index(){
-        return "index.html";
+        return "Hello World";
     }
+
+
 
 }
