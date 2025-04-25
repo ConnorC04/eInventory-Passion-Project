@@ -2,9 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Equipment Locations</title>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        th, td {
+          border: 1px solid #aaa;
+          padding: 8px;
+          text-align: left;
+        }
+        th {
+          background-color: #eee;
+        }
+    </style>
 </head>
 <body>
+<h1>Location Inventory Tracker</h1>
+<h2>Location List</h2>
+<table id="locationTable">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Manager</th>
+        <th>Contact</th>
+        <th>Assets</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 
+<script>
+    fetch('http://localhost:8080/locations')
+      .then(response => response.json())
+      .then(data => {
+        const tableBody = document.querySelector('#locationTable tbody');
+        data.forEach(location => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${location.locationName}</td>
+            <td>${location.locationAddress}</td>
+            <td>${location.locationManager}</td>
+            <td>${location.contactInfo}</td>
+            <td>${location.assetList.map(a => a.equipmentType).join(', ')}</td>
+          `;
+          tableBody.appendChild(row);
+        });
+      })
+      .catch(err => {
+        console.error('Error fetching locations:', err);
+      });
+</script>
 </body>
 </html>
