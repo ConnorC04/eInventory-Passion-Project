@@ -1,5 +1,6 @@
 package rocks.zipcode.eInventory;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 @Entity
@@ -7,51 +8,49 @@ public class Assets {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
+    @Column
     private String equipmentType;
-    @Enumerated(EnumType.STRING)
-    private Sizes equipmentSize;
-    @Enumerated(EnumType.STRING)
+
+    @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private ageClassification equipmentAge;
 
+    @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Sizes equipmentSize;
 
-    public Assets() {}
-
-    public Assets(String equipmentType, ageClassification ageClassification, Sizes size) {
+    // Constructors, Getters, Setters
+    public Assets(String equipmentType, ageClassification equipmentAge, Sizes equipmentSize) {
         this.equipmentType = equipmentType;
-        this.equipmentAge = ageClassification;
-        this.equipmentSize = size;
+        this.equipmentAge = equipmentAge;
+        this.equipmentSize = equipmentSize;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public Sizes getEquipmentSize() {
-        return equipmentSize;
-    }
+    public Assets(){}
 
     public String getEquipmentType() {
         return equipmentType;
-    }
-
-    public ageClassification getEquipmentAge() {
-        return equipmentAge;
-    }
-
-    public void setEquipmentSize(Sizes equipmentSize) {
-        this.equipmentSize = equipmentSize;
     }
 
     public void setEquipmentType(String equipmentType) {
         this.equipmentType = equipmentType;
     }
 
+    public ageClassification getEquipmentAge() {
+        return equipmentAge;
+    }
+
     public void setEquipmentAge(ageClassification equipmentAge) {
         this.equipmentAge = equipmentAge;
     }
 
-    public void setId(Long id){
-        this.id = id;
+    public Sizes getEquipmentSize() {
+        return equipmentSize;
+    }
+
+    public void setEquipmentSize(Sizes equipmentSize) {
+        this.equipmentSize = equipmentSize;
     }
 }

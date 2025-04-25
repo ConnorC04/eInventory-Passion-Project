@@ -14,38 +14,32 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping
-public class AssetsController{
+@RequestMapping("/assets")
+public class AssetsController {
 
-    private Map<String, Assets> db = new HashMap<>(){{
+    private Map<String, Assets> db = new HashMap<>() {{
         put("helmet", new Assets("helmet", ageClassification.SENIOR, Sizes.MEDIUM));
+        put("shinPad", new Assets("shinPad", ageClassification.SENIOR, Sizes.SMALL));
     }};
 
     @Autowired
     AssetsRepository assetsRepository;
 
-
-    @GetMapping("/")
-    public String index(){
-        return "Hello World";
-    }
-
-    @GetMapping("/assets")
-    public Collection<Assets> get(){
+    @GetMapping
+    public Collection<Assets> get() {
         return db.values();
     }
 
-    @GetMapping("/assets/{equipmentType}")
-    public Assets get(@PathVariable String equipmentType){
+    @GetMapping("/{equipmentType}")
+    public Assets get(@PathVariable String equipmentType) {
         Assets assets = db.get(equipmentType);
         if (assets == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return assets;
     }
 
-    @DeleteMapping("/assets/{equipmentType}")
-    public void delete(@PathVariable String equipmentType){
+    @DeleteMapping("/{equipmentType}")
+    public void delete(@PathVariable String equipmentType) {
         Assets assets = db.remove(equipmentType);
         if (assets == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
-
 }
