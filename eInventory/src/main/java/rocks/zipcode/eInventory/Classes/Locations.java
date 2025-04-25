@@ -1,19 +1,24 @@
-package rocks.zipcode.eInventory;
+package rocks.zipcode.eInventory.Classes;
 
 import jakarta.persistence.*;
+
 import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Locations {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
 
+    @Column
     private String locationName;
+    @Column
     private String locationAddress;
+    @Column
     private String locationManager;
+    @Column
     private String contactInfo;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

@@ -1,4 +1,4 @@
-package rocks.zipcode.eInventory;
+package rocks.zipcode.eInventory.Enums;
 
 public enum ageClassification {
 

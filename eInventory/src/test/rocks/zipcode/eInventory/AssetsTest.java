@@ -1,10 +1,10 @@
 package rocks.zipcode.eInventory;
 
+import rocks.zipcode.eInventory.Enums.Sizes;
+import rocks.zipcode.eInventory.Enums.ageClassification;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import rocks.zipcode.eInventory.Assets;
-import rocks.zipcode.eInventory.Sizes;
-import rocks.zipcode.eInventory.ageClassification;
+import rocks.zipcode.eInventory.Classes.Assets;
 
 import static org.junit.jupiter.api.Assertions.*;
 

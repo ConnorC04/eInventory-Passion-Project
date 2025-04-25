@@ -41,20 +41,30 @@
   fetch('http://localhost:8080/assets')
     .then(response => response.json())
     .then(data => {
-      const tableBody = document.querySelector('#assetTable tbody');
-      data.forEach(asset => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${asset.equipmentType}</td>
-          <td>${asset.equipmentAge}</td>
-          <td>${asset.equipmentSize}</td>
-        `;
-        tableBody.appendChild(row);
-      });
+        console.log("Asset data:", data); // <-- See exactly what you're getting
+        const tableBody = document.querySelector('#assetTable tbody');
+        tableBody.innerHTML = ''; // Clear existing table rows
+
+        data.forEach(asset => {
+            console.log("Rendering asset:", asset); // <-- See each item
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${asset.equipmentType}</td>
+                <td>${formatEnum(asset.equipmentAge)}</td>
+                <td>${formatEnum(asset.equipmentSize)}</td>
+            `;
+            tableBody.appendChild(row);
+        });
     })
     .catch(err => {
-      console.error('Error fetching assets:', err);
+        console.error('Error fetching assets:', err);
     });
+
+function formatEnum(value) {
+    if (!value) return "";
+    const lower = value.toLowerCase();
+    return lower.charAt(0).toUpperCase() + lower.slice(1);
+}
 </script>
 </body>
 </html>

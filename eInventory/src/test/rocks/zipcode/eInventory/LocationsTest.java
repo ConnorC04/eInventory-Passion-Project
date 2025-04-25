@@ -2,8 +2,8 @@ package rocks.zipcode.eInventory;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import rocks.zipcode.eInventory.Assets;
-import rocks.zipcode.eInventory.Locations;
+import rocks.zipcode.eInventory.Classes.Locations;
+import rocks.zipcode.eInventory.Classes.Assets;
 
 import java.util.ArrayList;
 

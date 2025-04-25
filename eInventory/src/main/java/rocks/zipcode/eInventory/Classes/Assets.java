@@ -1,7 +1,9 @@
-package rocks.zipcode.eInventory;
+package rocks.zipcode.eInventory.Classes;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import rocks.zipcode.eInventory.Enums.Sizes;
+import rocks.zipcode.eInventory.Enums.ageClassification;
 
 @Entity
 @Table(name = "AssetsTable")
