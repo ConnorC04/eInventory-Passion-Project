@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "AssetsTable")
 public class Assets {
 
     @Id

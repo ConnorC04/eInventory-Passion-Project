@@ -20,17 +20,21 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Handle form submission
-    document.getElementById('addAssetForm').addEventListener('submit', function(event) {
-        event.preventDefault();
+    document.getElementById("addAssetForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent page reload on form submission
 
-        const equipmentType = document.getElementById('equipmentType').value;
-        const equipmentAge = document.getElementById('equipmentAge').value;
-        const equipmentSize = document.getElementById('equipmentSize').value;
+        // Collect form values
+        const equipmentType = document.getElementById("equipmentType").value;
+        const equipmentAge = document.getElementById("equipmentAge").value;
+        const equipmentSize = document.getElementById("equipmentSize").value;
 
-        const newAsset = { equipmentType, equipmentAge, equipmentSize };
-        assets.push(newAsset);
+        // Log the data to the console
+        console.log("New Asset Added:");
+        console.log("Equipment Type:", equipmentType);
+        console.log("Equipment Age:", equipmentAge);
+        console.log("Equipment Size:", equipmentSize);
 
-        // Optionally, update the DOM or send a request to your backend
-        console.log(newAsset);
+        // Optionally, clear the form after submission
+        document.getElementById("addAssetForm").reset();
     });
 });

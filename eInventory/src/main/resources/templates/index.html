@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipment Inventory Tracker</title>
+</head>
+<body>
+<h1>Equipment Inventory Tracker</h1>
+
+<form id="addAssetForm">
+  <h2>Asset List</h2>
+
+  <label for="equipmentType">Equipment Type:</label>
+  <input type="text" id="equipmentType" placeholder="Enter equipment type">
+
+  <br><br>
+
+  <label for="equipmentAge">Equipment Age:</label>
+  <select id="equipmentAge">
+    <option value="YOUTH">Youth</option>
+    <option value="JUNIOR">Junior</option>
+    <option value="INTERMEDIATE">Intermediate</option>
+    <option value="SENIOR">Senior</option>
+  </select>
+
+  <br><br>
+
+  <label for="equipmentSize">Equipment Size:</label>
+  <select id="equipmentSize">
+    <option value="SMALL">Small</option>
+    <option value="MEDIUM">Medium</option>
+    <option value="LARGE">Large</option>
+    <option value="EXTRA_LARGE">Extra Large</option>
+  </select>
+
+  <br><br>
+
+  <button type="submit">Add Asset</button>
+</form>
+
+<script src="../static/app.js"></script>
+</body>
+</html>
