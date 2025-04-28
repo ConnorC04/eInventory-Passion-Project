@@ -24,6 +24,7 @@ public class AssetsController {
         List<Assets> assetsList = new ArrayList<>();
         assetsList.add(new Assets("Shin Pad", ageClassification.SENIOR, Sizes.SMALL));
         assetsList.add(new Assets("Helmet", ageClassification.SENIOR, Sizes.MEDIUM));
+
         return assetsList;
     }
 }
